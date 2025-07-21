@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锂友科技有限公司 - 专业电路板保护板供应商</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#0DCAF0',
+                        accent: '#00B42A',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-15px); }
+                100% { transform: translateY(0px); }
+            }
+            .circuit-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23165DFF' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-dark antialiased">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <i class="fa fa-bolt text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-white text-shadow">锂友科技</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-white hover:text-secondary transition-colors">首页</a>
+                <a href="#about" class="text-white hover:text-secondary transition-colors">公司简介</a>
+                <a href="#products" class="text-white hover:text-secondary transition-colors">产品中心</a>
+                <a href="#advantages" class="text-white hover:text-secondary transition-colors">核心优势</a>
+                <a href="#applications" class="text-white hover:text-secondary transition-colors">应用领域</a>
+                <a href="#contact" class="text-white hover:text-secondary transition-colors">联系我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-dark hover:text-primary transition-colors py-2">首页</a>
+                <a href="#about" class="text-dark hover:text-primary transition-colors py-2">公司简介</a>
+                <a href="#products" class="text-dark hover:text-primary transition-colors py-2">产品中心</a>
+                <a href="#advantages" class="text-dark hover:text-primary transition-colors py-2">核心优势</a>
+                <a href="#applications" class="text-dark hover:text-primary transition-colors py-2">应用领域</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1/1920/1080" alt="电路板背景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark/80 to-dark/50"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center md:text-left">
+            <div class="max-w-3xl mx-auto md:mx-0">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight mb-6">
+                    锂友科技<br>
+                    <span class="text-secondary">电路板保护板专家</span>
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-2xl">
+                    专注于锂电池保护板研发、生产与销售的高新技术企业，为各类电子设备提供安全可靠的电源保护解决方案。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#about" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full text-lg font-medium transition-all transform hover:scale-105 shadow-lg">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full text-lg font-medium transition-all">
+                        联系我们 <i class="fa fa-envelope ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white text-3xl">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">公司简介</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">锂友科技有限公司成立于2015年，是一家专注于锂电池保护板研发、生产与销售的高新技术企业。</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-6 text-dark">我们的使命</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        锂友科技致力于为全球客户提供高品质、高性能的电路板保护板产品，确保各类电子设备的电池安全可靠运行。我们坚持技术创新，不断提升产品性能，为客户创造更大价值。
+                    </p>
+                    <h3 class="text-2xl font-bold mb-6 text-dark">发展历程</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">2015年</h4>
+                                <p class="text-gray-600">公司在深圳成立，开始专注于锂电池保护板的研发</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">2017年</h4>
+                                <p class="text-gray-600">推出第一代智能锂电池保护板，获得市场广泛认可</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">2020年</h4>
+                                <p class="text-gray-600">扩大生产规模，建立第二生产基地，年产能突破500万片</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">2023年</h4>
+                                <p class="text-gray-600">研发出高集成度、低功耗的第三代保护板，获得多项国家专利</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <img src="https://picsum.photos/id/180/800/600" alt="公司办公环境" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg max-w-xs">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-users text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">150+</h4>
+                                <p class="text-gray-600 text-sm">专业团队成员</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg max-w-xs">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4">
+                                <i class="fa fa-certificate text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark">20+</h4>
+                                <p class="text-gray-600 text-sm">技术专利</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-line-chart text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">100万+</h3>
+                    <p class="text-gray-600">年生产能力</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-globe text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">30+</h3>
+                    <p class="text-gray-600">销售国家</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">500+</h3>
+                    <p class="text-gray-600">长期客户</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa fa-trophy text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">15+</h3>
+                    <p class="text-gray-600">行业奖项</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心 -->
+    <section id="products" class="py-20 bg-gray-50 circuit-pattern">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">产品中心</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">我们提供多种类型的电路板保护板，满足不同客户的需求，为各类电子设备提供安全可靠的电源保护。</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/119/600/400" alt="智能手机保护板" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark">智能手机保护板</h3>
+                            <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">热销产品</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">专为智能手机设计的高集成度保护板，提供过充、过放、过流、短路保护，体积小、效率高。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">过充保护</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">过放保护</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">过流保护</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">短路保护</span>
+                        </div>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primary/80 transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/160/600/400" alt="移动电源保护板" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark">移动电源保护板</h3>
+                            <span class="bg-secondary/10 text-secondary text-sm px-3 py-1 rounded-full">新品上市</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">适用于大容量移动电源的保护板，支持快充技术，具有多重保护功能，高效稳定。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">快充支持</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">多重保护</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">高效率</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">低功耗</span>
+                        </div>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primary/80 transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/118/600/400" alt="电动工具保护板" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark">电动工具保护板</h3>
+                            <span class="bg-accent/10 text-accent text-sm px-3 py-1 rounded-full">畅销产品</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">专为电动工具设计的高功率保护板，能够承受大电流放电，具有过温保护和电池均衡功能。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">高功率</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">过温保护</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">电池均衡</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">长寿命</span>
+                        </div>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primary/80 transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/163/600/400" alt="智能穿戴保护板" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark">智能穿戴保护板</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">超小型保护板，专为智能手表、手环等可穿戴设备设计，低功耗、高精度，空间利用率高。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">超小型</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">低功耗</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">高精度</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">可定制</span>
+                        </div>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primary/80 transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/164/600/400" alt="储能系统保护板" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark">储能系统保护板</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">用于家庭和工业储能系统的保护板，支持多串多并电池组，具有完善的电池管理功能。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">多串多并</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">电池管理</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">数据监控</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">智能控制</span>
+                        </div>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primary/80 transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://picsum.photos/id/165/600/400" alt="定制化保护板" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark">定制化保护板</h3>
+                            <span class="bg-secondary/10 text-secondary text-sm px-3 py-1 rounded-full">定制服务</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">根据客户需求定制的专用保护板，提供从方案设计到批量生产的一站式服务。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">按需定制</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">一站式服务</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">专业设计</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">快速打样</span>
+                        </div>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-primary/80 transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-all transform hover:scale-105 shadow-lg">
+                    查看全部产品 <i class="fa fa-th-large ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心优势 -->
+    <section id="advantages" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">核心优势</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">我们凭借专业的技术团队和先进的生产工艺，为客户提供高品质的产品和服务。</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 优势1 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-lightbulb-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-dark">技术创新</h3>
+                    <p class="text-gray-600">
+                        拥有一支由行业资深专家组成的研发团队，持续投入研发，每年推出多款新产品，拥有20多项技术专利。
+                    </p>
+                </div>
+                
+                <!-- 优势2 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-shield text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-dark">品质保证</h3>
+                    <p class="text-gray-600">
+                        通过ISO9001质量管理体系认证，所有产品严格执行国际标准，从原材料采购到成品出厂，经过12道质量检测工序。
+                    </p>
+                </div>
+                
+                <!-- 优势3 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-cogs text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-dark">先进工艺</h3>
+                    <p class="text-gray-600">
+                        引进国际先进的生产设备和自动化生产线，采用SMT贴片工艺和波峰焊接技术，确保产品质量稳定可靠。
+                    </p>
+                </div>
+                
+                <!-- 优势4 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-clock-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-dark">快速交付</h3>
+                    <p class="text-gray-600">
+                        完善的供应链管理体系和高效的生产流程，确保样品3天内完成，小批量订单7天内交付，大批量订单15天内交付。
+                    </p>
+                </div>
+                
+                <!-- 优势5 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-handshake-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-dark">定制服务</h3>
+                    <p class="text-gray-600">
+                        提供从方案设计、样品制作到批量生产的一站式定制服务，根据客户需求开发专用保护板，满足不同应用场景。
+                    </p>
+                </div>
+                
+                <!-- 优势6 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-headphones text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-dark">专业支持</h3>
+                    <p class="text-gray-600">
+                        7×24小时技术支持团队，为客户提供产品应用咨询、故障排除和解决方案，确保客户使用无忧。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用领域 -->
+    <section id="applications" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">应用领域</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">我们的电路板保护板广泛应用于多个领域，为各类电子设备提供安全可靠的电源保护。</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- 应用1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/119/600/400" alt="消费电子" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-mobile text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">消费电子</h3>
+                        <p class="text-gray-600">智能手机、平板电脑、移动电源、智能穿戴设备等</p>
+                    </div>
+                </div>
+                
+                <!-- 应用2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/118/600/400" alt="电动工具" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-wrench text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">电动工具</h3>
+                        <p class="text-gray-600">电钻、电锯、电锤、割草机等各类电动工具</p>
+                    </div>
+                </div>
+                
+                <!-- 应用3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/133/600/400" alt="新能源汽车" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-car text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">新能源汽车</h3>
+                        <p class="text-gray-600">电动汽车、电动摩托车、电动自行车等</p>
+                    </div>
+                </div>
+                
+                <!-- 应用4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/164/600/400" alt="储能系统" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-plug text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">储能系统</h3>
+                        <p class="text-gray-600">家庭储能、工业储能、太阳能储能系统等</p>
+                    </div>
+                </div>
+                
+                <!-- 应用5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/111/600/400" alt="医疗设备" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-medkit text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">医疗设备</h3>
+                        <p class="text-gray-600">便携式医疗设备、家用医疗仪器等</p>
+                    </div>
+                </div>
+                
+                <!-- 应用6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/128/600/400" alt="智能机器人" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-android text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">智能机器人</h3>
+                        <p class="text-gray-600">扫地机器人、服务机器人、工业机器人等</p>
+                    </div>
+                </div>
+                
+                <!-- 应用7 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/112/600/400" alt="无人机" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-paper-plane text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">无人机</h3>
+                        <p class="text-gray-600">航拍无人机、农业无人机、物流无人机等</p>
+                    </div>
+                </div>
+                
+                <!-- 应用8 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/165/600/400" alt="其他应用" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-ellipsis-h text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-dark">其他应用</h3>
+                        <p class="text-gray-600">智能家居、照明系统、安防设备等</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">客户评价</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">听听我们的客户怎么说</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 评价1 -->
+                <div class="bg-gray-50 p-8 rounded-xl relative">
+                    <div class="text-primary text-5xl absolute -top-4 -left-2 opacity-20">
+                        <i class="fa fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 relative z-10">
+                        锂友科技的保护板质量非常稳定，我们已经合作了5年，产品从未出现过质量问题。他们的技术团队也非常专业，能够及时解决我们遇到的各种问题。
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/1005/100/100" alt="张先生" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-dark">张先生</h4>
+                            <p class="text-gray-500 text-sm">某知名手机品牌 采购总监</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 评价2 -->
+                <div class="bg-gray-50 p-8 rounded-xl relative">
+                    <div class="text-primary text-5xl absolute -top-4 -left-2 opacity-20">
+                        <i class="fa fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 relative z-10">
+                        作为一家初创企业，我们非常感谢锂友科技提供的定制化服务。他们从产品设计到生产全程给予我们专业指导，帮助我们快速推出了市场上具有竞争力的产品。
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/1006/100/100" alt="李女士" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-dark">李女士</h4>
+                            <p class="text-gray-500 text-sm">智能穿戴设备创业公司 CEO</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 评价3 -->
+                <div class="bg-gray-50 p-8 rounded-xl relative">
+                    <div class="text-primary text-5xl absolute -top-4 -left-2 opacity-20">
+                        <i class="fa fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 relative z-10">
+                        锂友科技的交货速度非常快，我们经常有紧急订单，他们总能在最短的时间内满足我们的需求。产品质量也很可靠，是我们值得信赖的合作伙伴。
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/id/1012/100/100" alt="王先生" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-dark">王先生</h4>
+                            <p class="text-gray-500 text-sm">电动工具制造商 供应链经理</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">如果您对我们的产品或服务有任何疑问，欢迎随时联系我们，我们将竭诚为您服务。</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-dark">联系方式</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-map-marker text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark">公司地址</h4>
+                                    <p class="text-gray-600">广东省深圳市南山区科技园北区8号创新大厦A座15层</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark">联系电话</h4>
+                                    <p class="text-gray-600">+86 0755-88888888</p>
+                                    <p class="text-gray-600">+86 0755-88888889</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark">电子邮箱</h4>
+                                    <p class="text-gray-600">sales@liyou-tech.com</p>
+                                    <p class="text-gray-600">support@liyou-tech.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fa fa-clock-o text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark">工作时间</h4>
+                                    <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                                    <p class="text-gray-600">周六: 9:00 - 12:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-dark mb-4">关注我们</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-weixin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-weibo"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center text-primary transition-colors">
+                                    <i class="fa fa-youtube-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-dark">发送消息</h3>
+                        
+                        <form>
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-colors" placeholder="请输入您的姓名">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-colors" placeholder="请输入您的邮箱">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-colors" placeholder="请输入消息主题">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">消息内容</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-colors resize-none" placeholder="请输入您的消息内容"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors transform hover:scale-[1.02]">
+                                发送消息 <i class="fa fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                            <i class="fa fa-bolt text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">锂友科技</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        专业的电路板保护板供应商，致力于为客户提供高品质的产品和服务。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">公司简介</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition-colors">产品中心</a></li>
+                        <li><a href="#advantages" class="text-gray-400 hover:text-white transition-colors">核心优势</a></li>
+                        <li><a href="#applications" class="text-gray-400 hover:text-white transition-colors">应用领域</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">产品系列</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">智能手机保护板</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">移动电源保护板</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">电动工具保护板</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">智能穿戴保护板</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">储能系统保护板</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">定制化保护板</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">联系我们</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">广东省深圳市南山区科技园北区8号创新大厦A座15层</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">+86 0755-88888888</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">sales@liyou-tech.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-clock-o text-primary mr-3"></i>
+                            <span class="text-gray-400">周一至周五: 9:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 锂友科技有限公司 版权所有 | 粤ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-dark', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单（如果打开）
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部按钮
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 图片懒加载
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img"));
+            
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.classList.add("fade-in");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
